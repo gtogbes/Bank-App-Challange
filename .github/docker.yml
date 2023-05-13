@@ -11,5 +11,11 @@ jobs:
 
     steps: 
     - uses: actions/checkout@v3
+    - name: package docker image
+      run: |
+        sudo apt update
+        echo "build DeVOps class Docker Container"
+        # we use the --file just incase you have different docker file for different environment, e.g dev-Dockerfile
+        docker build . --file Dockerfile --tag Bank-App:$(date)
 
 
